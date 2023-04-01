@@ -9,8 +9,8 @@ const ProductListing = () => {
 
     return ( <>
     <h2>Product List</h2>
-    <div style={{width:"",marginLeft:30}}>
-    <div style={{display:"flex", flexWrap:"wrap"}}>
+    <div>
+    <div style={{display:"flex",marginLeft:30, flexWrap:"wrap"}}>
     {
         Array.isArray(products) && products.map((prod,i)=><Product key={i} product={prod}/>)
     }

@@ -10,10 +10,13 @@ import RemoveIcon from '@mui/icons-material/RemoveCircleRounded';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import {removeFromCart } from '../app/product-slice/ProductSlice'
+import StarHalf from '@mui/icons-material/StarHalf';
+import Grade from '@mui/icons-material/Grade';
 
 const CartProduct = (product) => {
 
   const prod = product?.product
+console.log("prf",prod);
   const [count, setCount] = React.useState(1)
   
   const dispatch = useDispatch()
@@ -32,14 +35,20 @@ const CartProduct = (product) => {
 
   return (<>
        <Card sx={{ display: 'flex',m:5, width:500 }}>
-        <Box sx={{ display: 'flex',width:"70%", flexDirection: 'column', bgcolor:"Highlight"  }}>
+        <Box sx={{ display: 'flex',width:"70%", flexDirection: 'column', bgcolor:"bisque"  }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
          <Typography component="div" variant="h5">{prod.name}</Typography>
-         <Typography variant="subtitle1" color="text.secondary" component="div">Mac Miller</Typography>
+         <Typography variant="subtitle1" color="text.secondary" component="div">{prod.description}</Typography>
+         <Typography variant="h6" color="text.secondary" component="div">Amount - {prod.price}</Typography>
+         <Typography variant="h6" color="green" component="div" fontSize={16}>Discount Amount - {prod.discountAmount}</Typography>
+         {
+           new Array(prod.rating).fill(prod.rating).map((r,i)=> r == i+1 ? <StarHalf key={i} sx={{color:"orange"}}/>:<Grade key={i * 10} sx={{color:"orange"}}/>)
+          }
+          <Typography variant="h6" component="div" color="text.secondary" fontSize={12}>Review - {prod.reviewCount}</Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
          <IconButton aria-label="" onClick={decrement}>
-             <RemoveIcon />
+            <RemoveIcon />
          </IconButton>
          <Typography>{count}</Typography>   
          <IconButton aria-label="" onClick={increment}>
