@@ -13,7 +13,8 @@ const ProductTask = () => {
 
     useEffect(()=>{
         ProductApi.fetchProducts().then((res)=>{
-            dispatch(addProducts(res.data))            
+            dispatch(addProducts(res.data))  
+            document.cookie = 'connect.sid=s%253AC9UlQ9M1W1aslddIqBNrrk68Yx4GleaF.OyLqPkC%252FpbJKf070EG6KIJoS70bHaP5GOYxBXBV6hG8'          
         }).catch((err)=>{
             console.log("err",err);
         })
