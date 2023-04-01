@@ -21,8 +21,6 @@ const Product = ({product})=> {
 const dispatch = useDispatch()    
 const [colour,setColour] = React.useState("grey")
 
-const rate = [1,2,3,4]
-
 const addingToCart = (prod)=>{
     dispatch(addToCart(prod))
 }
@@ -45,7 +43,7 @@ const addingToCart = (prod)=>{
         <Typography ><b>Price : <RuppeIcon sx={{fontSize:15}}/>{product.price}</b></Typography>
         <Typography sx={{color:"green"}}><b>Discount price : <RuppeIcon sx={{fontSize:15}}/>{product.discountAmount}</b></Typography>
         {
-            rate.map((r,i)=> r == 4 ? <StarHalf key={i} sx={{color:"orange"}}/>:<Grade key={i * 10} sx={{color:"orange"}}/>)
+            new Array(product.rating).fill(product.rating).map((r,i)=> r == i+1 ? <StarHalf key={i} sx={{color:"orange"}}/>:<Grade key={i * 10} sx={{color:"orange"}}/>)
         }        
       </CardContent>
       <CardActions disableSpacing>
