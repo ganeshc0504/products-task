@@ -34,7 +34,7 @@ console.log("prf",prod);
   }
 
   return (<>
-       <Card sx={{ display: 'flex',m:5, width:500 }}>
+       <Card sx={{ display: 'flex',m:{xs:3,md:5}, width:{xs:350,md:600} }}>
         <Box sx={{ display: 'flex',width:"70%", flexDirection: 'column', bgcolor:"bisque"  }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
          <Typography component="div" variant="h5">{prod.name}</Typography>
